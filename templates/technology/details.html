@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card shadow-sm">
+  <div class="card-body">
+    <h3 class="text-success">{{ technology.name }}</h3>
+    <p><strong>Category:</strong> {{ technology.category }}</p>
+    <p><strong>Description:</strong> {{ technology.description }}</p>
+    <p><strong>Working Principle:</strong> {{ technology.working_principle }}</p>
+    <p><strong>Advantages:</strong> {{ technology.advantages }}</p>
+    <p><strong>Limitations:</strong> {{ technology.limitations }}</p>
+    <p><strong>Estimated Cost:</strong> {{ technology.estimated_cost }}</p>
+    <p><strong>Suitable Crops:</strong> {{ technology.suitable_crops }}</p>
+    <p><strong>Suitable Farm Size:</strong> {{ technology.suitable_farm_size }}</p>
+  </div>
+</div>
+{% endblock %}

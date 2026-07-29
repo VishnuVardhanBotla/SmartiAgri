@@ -1,0 +1,60 @@
+body {
+  background: linear-gradient(135deg, #f7fbf5 0%, #eef8eb 100%);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  min-height: 100vh;
+}
+
+.hero {
+  background: linear-gradient(135deg, #eaf7ea, #d9f2d9);
+}
+
+.card {
+  border-radius: 20px;
+}
+
+.navbar-brand {
+  font-weight: 700;
+}
+
+.auth-card {
+  border: 0;
+  box-shadow: 0 20px 45px rgba(31, 96, 42, 0.12);
+}
+
+.form-control,
+.form-select {
+  border-radius: 999px;
+  padding: 0.8rem 1rem 0.8rem 2.8rem;
+  border-color: #dce8dc;
+  background-color: #fcfffc;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #4caf50;
+  box-shadow: 0 0 0 0.2rem rgba(76, 175, 80, 0.2);
+}
+
+.input-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6c8f6f;
+  pointer-events: none;
+}
+
+.input-group .form-control {
+  padding-left: 3rem;
+}
+
+.btn-success {
+  border-radius: 999px;
+  padding: 0.8rem 1.2rem;
+  background: linear-gradient(135deg, #2e7d32, #4caf50);
+  border: 0;
+}
+
+.btn-success:hover {
+  background: linear-gradient(135deg, #256a29, #3c8f3f);
+}

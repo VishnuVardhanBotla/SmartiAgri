@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center py-4">
+  <div class="col-lg-9">
+    <div class="card auth-card">
+      <div class="card-body p-4 p-md-5">
+        <div class="text-center mb-4">
+          <div class="rounded-circle bg-success bg-opacity-10 d-inline-flex align-items-center justify-content-center p-3 mb-3">
+            <i class="bi bi-person-plus-fill fs-2 text-success"></i>
+          </div>
+          <h2 class="fw-bold text-success mb-2">{{ t('auth.create_account') }}</h2>
+          <p class="text-muted mb-0">{{ t('auth.register_subtitle') }}</p>
+        </div>
+        <form method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+          <div class="mb-4">
+            <label class="form-label fw-semibold">{{ t('auth.account_type') }}</label>
+            <select class="form-select" name="role" id="roleSelect" required>
+              <option value="">{{ t('auth.choose_role') }}</option>
+              <option value="farmer" {% if role == 'farmer' %}selected{% endif %}>Farmer</option>
+              <option value="provider" {% if role == 'provider' %}selected{% endif %}>Machinery / Service Provider</option>
+              <option value="buyer" {% if role == 'buyer' %}selected{% endif %}>Buyer</option>
+            </select>
+          </div>
+
+          <div class="row g-3">
+            <div class="col-md-6 position-relative">
+              <span class="input-icon"><i class="bi bi-person-fill"></i></span>
+              <input class="form-control" type="text" name="full_name" placeholder="{{ t('auth.full_name') }}" required>
+            </div>
+            <div class="col-md-6 position-relative">
+              <span class="input-icon"><i class="bi bi-envelope-fill"></i></span>
+              <input class="form-control" type="email" name="email" placeholder="{{ t('auth.email') }}" required>
+            </div>
+            <div class="col-md-6 position-relative">
+              <span class="input-icon"><i class="bi bi-telephone-fill"></i></span>
+              <input class="form-control" type="text" name="phone" placeholder="{{ t('auth.phone') }}" required>
+            </div>
+            <div class="col-md-6 position-relative">
+              <span class="input-icon"><i class="bi bi-telephone-forward-fill"></i></span>
+              <input class="form-control" type="text" name="alternate_phone" placeholder="{{ t('auth.alternate_phone') }}">
+            </div>
+            <div class="col-md-6 position-relative">
+              <span class="input-icon"><i class="bi bi-lock-fill"></i></span>
+              <input class="form-control" type="password" name="password" placeholder="Password" required>
+            </div>
+            <div class="col-md-6 position-relative">
+              <span class="input-icon"><i class="bi bi-lock-fill"></i></span>
+              <input class="form-control" type="password" name="confirm_password" placeholder="{{ t('auth.confirm_password') }}" required>
+            </div>
+            <div class="col-12">
+              <label class="form-label fw-semibold">{{ t('auth.profile_photo') }}</label>
+              <input class="form-control" type="file" name="profile_photo">
+            </div>
+          </div>
+
+          <div class="row g-3 mt-2">
+            <div class="col-md-6"><input class="form-control" type="text" name="house_no" placeholder="House / Door Number"></div>
+            <div class="col-md-6"><input class="form-control" type="text" name="street" placeholder="Street / Area"></div>
+            <div class="col-md-6"><input class="form-control" type="text" name="village" placeholder="Village / Town"></div>
+            <div class="col-md-6"><input class="form-control" type="text" name="mandal" placeholder="Mandal / Taluk"></div>
+            <div class="col-md-6"><input class="form-control" type="text" name="district" placeholder="District"></div>
+            <div class="col-md-6"><input class="form-control" type="text" name="state" placeholder="State"></div>
+            <div class="col-md-6"><input class="form-control" type="text" name="pin_code" placeholder="PIN Code"></div>
+            <div class="col-md-6"><input class="form-control" type="text" name="country" value="India" placeholder="Country"></div>
+          </div>
+
+          <div id="farmerFields" class="mt-4 row g-3" {% if role != 'farmer' %}style="display:none;"{% endif %}>
+            <div class="col-md-6"><input class="form-control" type="text" name="farm_name" placeholder="Farm Name"></div>
+            <div class="col-md-6"><input class="form-control" type="text" name="land_acres" placeholder="Total Land (Acres)"></div>
+            <div class="col-md-6"><input class="form-control" type="text" name="main_crops" placeholder="Main Crops"></div>
+            <div class="col-md-6"><select class="form-select" name="farming_type"><option value="">Farming Type</option><option>Organic</option><option>Conventional</option><option>Mixed</option></select></div>
+            <div class="col-md-6"><input class="form-control" type="text" name="irrigation_type" placeholder="Irrigation Type"></div>
+            <div class="col-md-6"><input class="form-control" type="text" name="preferred_language" placeholder="Preferred Language"></div>
+          </div>
+
+          <div id="providerFields" class="mt-4 row g-3" {% if role != 'provider' %}style="display:none;"{% endif %}>
+            <div class="col-md-6"><input class="form-control" type="text" name="business_name" placeholder="Business Name"></div>
+            <div class="col-md-6"><input class="form-control" type="text" name="owner_name" placeholder="Owner Name"></div>
+            <div class="col-md-6"><input class="form-control" type="text" name="machinery_category" placeholder="Machinery Category"></div>
+            <div class="col-md-6"><input class="form-control" type="text" name="service_category" placeholder="Service Category"></div>
+            <div class="col-md-6"><input class="form-control" type="text" name="equipment" placeholder="Available Equipment"></div>
+            <div class="col-md-6"><select class="form-select" name="rental_available"><option value="">Rental Available</option><option value="Yes">Yes</option><option value="No">No</option></select></div>
+            <div class="col-md-6"><input class="form-control" type="text" name="service_area" placeholder="Service Area"></div>
+            <div class="col-md-6"><input class="form-control" type="text" name="gst_number" placeholder="GST Number (Optional)"></div>
+            <div class="col-md-12"><input class="form-control" type="url" name="website" placeholder="Website (Optional)"></div>
+          </div>
+
+          <div id="buyerFields" class="mt-4 row g-3" {% if role != 'buyer' %}style="display:none;"{% endif %}>
+            <div class="col-md-6"><input class="form-control" type="text" name="company_name" placeholder="Company Name"></div>
+            <div class="col-md-6"><input class="form-control" type="text" name="contact_person" placeholder="Contact Person"></div>
+            <div class="col-md-6"><input class="form-control" type="text" name="business_type" placeholder="Business Type"></div>
+            <div class="col-md-6"><input class="form-control" type="text" name="interested_crops" placeholder="Interested Crops"></div>
+            <div class="col-md-6"><input class="form-control" type="text" name="buying_locations" placeholder="Buying Locations"></div>
+            <div class="col-md-6"><input class="form-control" type="text" name="daily_buying_capacity" placeholder="Daily Buying Capacity"></div>
+            <div class="col-md-6"><input class="form-control" type="text" name="gst_number" placeholder="GST Number (Optional)"></div>
+            <div class="col-md-6"><input class="form-control" type="url" name="website" placeholder="Website (Optional)"></div>
+          </div>
+
+          <div class="d-grid mt-4">
+            <button class="btn btn-success btn-lg" type="submit">{{ t('auth.create_button') }}</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const roleSelect = document.getElementById('roleSelect');
+    const farmerFields = document.getElementById('farmerFields');
+    const providerFields = document.getElementById('providerFields');
+    const buyerFields = document.getElementById('buyerFields');
+    function toggleSections() {
+      const role = roleSelect.value;
+      farmerFields.style.display = role === 'farmer' ? 'flex' : 'none';
+      providerFields.style.display = role === 'provider' ? 'flex' : 'none';
+      buyerFields.style.display = role === 'buyer' ? 'flex' : 'none';
+    }
+    if (roleSelect) {
+      roleSelect.addEventListener('change', toggleSections);
+      toggleSections();
+    }
+  });
+</script>
+{% endblock %}

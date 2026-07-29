@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3 class="text-success">Technology Library</h3>
+<div class="row g-4 mt-2">
+  {% for technology in technologies %}
+    <div class="col-md-6">
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+          <h5>{{ technology.name }}</h5>
+          <p><strong>Category:</strong> {{ technology.category }}</p>
+          <p>{{ technology.description }}</p>
+          <a class="btn btn-outline-success" href="{{ url_for('technology.details', tech_id=technology.id) }}">View Details</a>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

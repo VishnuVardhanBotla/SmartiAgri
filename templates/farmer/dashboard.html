@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row g-4">
+  <div class="col-md-8">
+    <div class="card shadow-sm mb-4">
+      <div class="card-body">
+        <h3 class="text-success">{{ t('dashboard.farmer') }}</h3>
+        <p>{{ t('dashboard.welcome', name=session.get('full_name')) }}</p>
+      </div>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5>{{ t('dashboard.weather') }}</h5>
+            <p>Temperature: 32°C</p>
+            <p>Humidity: 72%</p>
+            <p>Rain probability: 40%</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5>{{ t('dashboard.market') }}</h5>
+            {% for price in prices %}
+              <p>{{ price.crop_name }}: ₹{{ price.modal_price }}</p>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h5>{{ t('dashboard.notifications') }}</h5>
+        {% for note in notifications %}
+          <p>{{ note.title }} - {{ note.message }}</p>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row g-4 mt-2">
+  <div class="col-md-6">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h5>{{ t('dashboard.recommended') }}</h5>
+        <ul>
+          <li>Smart Irrigation Controller</li>
+          <li>Drone Spraying</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h5>{{ t('dashboard.schemes') }}</h5>
+        {% for scheme in schemes %}
+          <p>{{ scheme.scheme_name }}</p>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

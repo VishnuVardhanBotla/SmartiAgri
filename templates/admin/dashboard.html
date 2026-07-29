@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row g-4">
+  <div class="col-md-3">
+    <div class="card shadow-sm text-center">
+      <div class="card-body">
+        <h5>Farmers</h5>
+        <h2>{{ stats.total_farmers }}</h2>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card shadow-sm text-center">
+      <div class="card-body">
+        <h5>Providers</h5>
+        <h2>{{ stats.total_providers }}</h2>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card shadow-sm text-center">
+      <div class="card-body">
+        <h5>Buyers</h5>
+        <h2>{{ stats.total_buyers }}</h2>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card shadow-sm text-center">
+      <div class="card-body">
+        <h5>Machinery</h5>
+        <h2>{{ stats.total_machinery }}</h2>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

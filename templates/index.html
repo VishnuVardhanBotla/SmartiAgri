@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="hero bg-light p-5 rounded shadow-sm">
+  <div class="row align-items-center">
+    <div class="col-lg-7">
+      <h1 class="display-5 fw-bold text-success">{{ t('hero.title') }}</h1>
+      <p class="lead">{{ t('hero.description') }}</p>
+      <a class="btn btn-success btn-lg" href="{{ url_for('auth.login') }}">{{ t('hero.login') }}</a>
+      <a class="btn btn-outline-success btn-lg ms-2" href="{{ url_for('auth.register') }}">{{ t('hero.register') }}</a>
+      <p class="text-muted mt-3">Please sign in to access SmartAgri features like marketplace prices, community posts, and AI guidance.</p>
+    </div>
+    <div class="col-lg-5">
+      <img src="https://via.placeholder.com/500x300" class="img-fluid rounded" alt="SmartAgri illustration">
+    </div>
+  </div>
+</section>
+
+<section class="mt-5">
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">{{ t('home.ai_card') }}</h5>
+          <p class="card-text">{{ t('home.ai_text') }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">{{ t('home.market_card') }}</h5>
+          <p class="card-text">{{ t('home.market_text') }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">{{ t('home.community_card') }}</h5>
+          <p class="card-text">{{ t('home.community_text') }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

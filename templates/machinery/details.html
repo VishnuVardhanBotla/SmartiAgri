@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card shadow-sm">
+  <div class="card-body">
+    <h3 class="text-success">{{ machinery.name }}</h3>
+    <p><strong>Category:</strong> {{ machinery.category }}</p>
+    <p><strong>Brand:</strong> {{ machinery.brand }}</p>
+    <p><strong>Model:</strong> {{ machinery.model }}</p>
+    <p><strong>Description:</strong> {{ machinery.description }}</p>
+    <p><strong>Purchase Price:</strong> ₹{{ machinery.purchase_price }}</p>
+    <p><strong>Rental Price/Day:</strong> ₹{{ machinery.rental_price_per_day }}</p>
+    <p><strong>Availability:</strong> {{ machinery.availability }}</p>
+    <p><strong>Location:</strong> {{ machinery.location }}</p>
+    <p><strong>Provider:</strong> {{ machinery.provider_name }}</p>
+  </div>
+</div>
+{% endblock %}
